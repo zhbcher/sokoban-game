@@ -1,0 +1,321 @@
+/* src/styles/GameBoard.css */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.level-info, .moves-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.theme-selector select {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.game-board {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1;
+  margin-bottom: 20px;
+  background-color: #333;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Classic Theme */
+.classic .wall {
+  background-color: #7f8c8d;
+  box-shadow: inset 0 0 10px #2c3e50;
+}
+
+.classic .floor {
+  background-color: #ecf0f1;
+}
+
+.classic .target {
+  background-color: #e74c3c;
+  box-shadow: inset 0 0 5px #c0392b;
+}
+
+.classic .box {
+  background-color: #d35400;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, #d35400 25%, #e67e22 25%, #e67e22 50%, #d35400 50%, #d35400 75%, #e67e22 75%, #e67e22 100%);
+  background-size: 20px 20px;
+}
+
+.classic .box-on-target {
+  background-color: #27ae60;
+  box-shadow: 0 0 10px #2ecc71;
+  background-image: linear-gradient(45deg, #27ae60 25%, #2ecc71 25%, #2ecc71 50%, #27ae60 50%, #27ae60 75%, #2ecc71 75%, #2ecc71 100%);
+  background-size: 20px 20px;
+}
+
+.classic .player {
+  background-color: #3498db;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.classic .player-on-target {
+  background-color: #9b59b6;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #8e44ad;
+}
+
+/* Forest Theme */
+.forest .wall {
+  background-color: #795548;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.forest .floor {
+  background-color: #8bc34a;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.forest .target {
+  background-color: #ff9800;
+  box-shadow: inset 0 0 5px #f57c00;
+}
+
+.forest .box {
+  background-color: #795548;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, #795548 25%, #8d6e63 25%, #8d6e63 50%, #795548 50%, #795548 75%, #8d6e63 75%, #8d6e63 100%);
+  background-size: 20px 20px;
+}
+
+.forest .box-on-target {
+  background-color: #ff9800;
+  box-shadow: 0 0 10px #ff5722;
+  background-image: linear-gradient(45deg, #ff9800 25%, #ff5722 25%, #ff5722 50%, #ff9800 50%, #ff9800 75%, #ff5722 75%, #ff5722 100%);
+  background-size: 20px 20px;
+}
+
+.forest .player {
+  background-color: #4caf50;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.forest .player-on-target {
+  background-color: #cddc39;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #afb42b;
+}
+
+/* Space Theme */
+.space .wall {
+  background-color: #263238;
+  box-shadow: inset 0 0 10px #000;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.space .floor {
+  background-color: #1a237e;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.space .target {
+  background-color: #f50057;
+  box-shadow: inset 0 0 15px #ff4081;
+}
+
+.space .box {
+  background-color: #607d8b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, #607d8b 25%, #78909c 25%, #78909c 50%, #607d8b 50%, #607d8b 75%, #78909c 75%, #78909c 100%);
+  background-size: 20px 20px;
+}
+
+.space .box-on-target {
+  background-color: #00bcd4;
+  box-shadow: 0 0 15px #00e5ff;
+  background-image: linear-gradient(45deg, #00bcd4 25%, #00e5ff 25%, #00e5ff 50%, #00bcd4 50%, #00bcd4 75%, #00e5ff 75%, #00e5ff 100%);
+  background-size: 20px 20px;
+}
+
+.space .player {
+  background-color: #ffc107;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffeb3b;
+}
+
+.space .player-on-target {
+  background-color: #ff5722;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff9800;
+}
+
+/* Candy Theme */
+.candy .wall {
+  background-color: #e91e63;
+  box-shadow: inset 0 0 10px #c2185b;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.candy .floor {
+  background-color: #f8bbd0;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.candy .target {
+  background-color: #7b1fa2;
+  box-shadow: inset 0 0 5px #6a1b9a;
+}
+
+.candy .box {
+  background-color: #9c27b0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, #9c27b0 25%, #ab47bc 25%, #ab47bc 50%, #9c27b0 50%, #9c27b0 75%, #ab47bc 75%, #ab47bc 100%);
+  background-size: 20px 20px;
+}
+
+.candy .box-on-target {
+  background-color: #4a148c;
+  box-shadow: 0 0 10px #6a1b9a;
+  background-image: linear-gradient(45deg, #4a148c 25%, #6a1b9a 25%, #6a1b9a 50%, #4a148c 50%, #4a148c 75%, #6a1b9a 75%, #6a1b9a 100%);
+  background-size: 20px 20px;
+}
+
+.candy .player {
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.candy .player-on-target {
+  background-color: #ffc107;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff9800;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.direction-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontal-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.action-controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.next-level-btn {
+  background-color: #27ae60;
+}
+
+.next-level-btn:hover {
+  background-color: #2ecc71;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.5rem;
+  color: #3498db;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 10px;
+  }
+  
+  .game-info {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-board {
+    max-width: 100%;
+  }
+  
+  .controls {
+    gap: 15px;
+  }
+  
+  button {
+    padding: 12px 20px;
+  }
+}
